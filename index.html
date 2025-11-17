@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Julia Adler</title>
+  <style>
+    body {
+      background-color: #000;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    h1, h2, h3 {
+      color: #ffcc00;
+      text-shadow: 2px 2px 10px #ff00ff;
+      margin: 15px 0;
+    }
+    h1 { font-size: 42px; }
+    h2 { font-size: 36px; }
+    h3 { font-size: 24px; }
+
+    .imagem-container {
+      width: 220px;
+      height: 220px;
+      margin: 30px auto;
+    }
+    .imagem-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    .buttons {
+      margin: 50px 0;
+      position: relative;
+      height: 100px;
+    }
+    .btn {
+      padding: 18px 50px;
+      font-size: 26px;
+      font-weight: bold;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      user-select: none;
+    }
+    #simBtn {
+      background-color: #00cc66;
+      color: white;
+      animation: glow 1.8s infinite;
+    }
+    @keyframes glow {
+      0% { box-shadow: 0 0 15px #00cc66; }
+      50% { box-shadow: 0 0 50px #00ff88; }
+      100% { box-shadow: 0 0 15px #00cc66; }
+    }
+    #naoBtn {
+      background-color: #cc0000;
+      color: white;
+      position: absolute;
+      transition: transform 0.2s;
+    }
+
+
+    #conteudoInicial {
+      transition: opacity 0.6s;
+    }
+
+    #telaFinal {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100vw;
+      height: 100vh;
+      margin: 0;
+      padding: 20px;
+      box-sizing: border-box;
+      background: #000;
+    }
+    #mensagemFinal {
+      font-size: 48px;
+      color: #ffcc00;
+      text-shadow: 0 0 25px #ff00ff;
+      margin-bottom: 30px;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.08); }
+    }
+    #videoFinal {
+      width: 95%;
+      max-width: 1000px;
+      height: 70vh;
+      border: 5px solid #ff00ff;
+      border-radius: 20px;
+      box-shadow: 0 0 40px #ff00ff;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="conteudoInicial">
+    <h1>BOA NOITE DUMPADLER</h1>
+    <h2>DEIXA EU TIRAR UMA SW4 NO SEU NOME?</h2>
+    <h3>VAMOS FINGIR QUE VOCÊ TEM ESCOLHA</h3>
+
+    <div class="imagem-container">
+      <img src="personagem.png" alt="Personagem engraçado">
+    </div>
+
+    <div class="buttons">
+      <button id="simBtn" class="btn">Sim</button>
+      <button id="naoBtn" class="btn">Não</button>
+    </div>
+  </div>
+
+  <!-- Só aparece depois do Sim -->
+  <div id="telaFinal">
+    <h1 id="mensagemFinal">SABIA QUE IA ACEITAR 🫶<br>PARTIU PDD 🕺🦥🍕🚀</h1>
+    <iframe id="videoFinal"
+      src="https://www.youtube.com/embed/qIgIQbaN0WA?autoplay=1&loop=1&playlist=qIgIQbaN0WA&mute=0"
+      allow="autoplay; encrypted-media; picture-in-picture"
+      allowfullscreen>
+    </iframe>
+  </div>
+
+  <script>
+    const naoBtn = document.getElementById('naoBtn');
+    const simBtn = document.getElementById('simBtn');
+    const conteudoInicial = document.getElementById('conteudoInicial');
+    const telaFinal = document.getElementById('telaFinal');
+
+  
+    function fugir() {
+      const maxX = window.innerWidth - 150;
+      const maxY = window.innerHeight - 300;
+      
+      const x = Math.random() * maxX - maxX / 2;
+      const y = Math.random() * maxY - 100;
+      
+      naoBtn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    naoBtn.addEventListener('mouseover', fugir);
+    naoBtn.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      fugir();
+    });
+
+   
+    simBtn.addEventListener('click', () => {
+      conteudoInicial.style.display = 'none';
+      telaFinal.style.display = 'flex';
+    });
+  </script>
+</body>
+</html>
