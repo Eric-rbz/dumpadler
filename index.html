@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Julia Adler</title>
+  <title>Maria Clara</title>
   <style>
     body {
       background-color: #000;
@@ -69,11 +69,12 @@
       transition: transform 0.2s;
     }
 
-
+    /* Conteúdo inicial que vai sumir */
     #conteudoInicial {
       transition: opacity 0.6s;
     }
 
+    /* Tela final */
     #telaFinal {
       display: none;
       flex-direction: column;
@@ -109,9 +110,10 @@
 </head>
 <body>
 
+  <!-- Tudo que aparece no começo -->
   <div id="conteudoInicial">
-    <h1>BOA NOITE DUMPADLER</h1>
-    <h2>DEIXA EU TIRAR UMA SW4 NO SEU NOME?</h2>
+    <h1>BOA NOITE MARIA CLARA</h1>
+    <h2>QUER SAIR COMIGO SABADO ?</h2>
     <h3>VAMOS FINGIR QUE VOCÊ TEM ESCOLHA</h3>
 
     <div class="imagem-container">
@@ -126,7 +128,7 @@
 
   <!-- Só aparece depois do Sim -->
   <div id="telaFinal">
-    <h1 id="mensagemFinal">SABIA QUE IA ACEITAR 🫶<br>PARTIU PDD 🕺🦥🍕🚀</h1>
+    <h1 id="mensagemFinal">SABIA QUE IA ACEITAR 🫶</h1>
     <iframe id="videoFinal"
       src="https://www.youtube.com/embed/qIgIQbaN0WA?autoplay=1&loop=1&playlist=qIgIQbaN0WA&mute=0"
       allow="autoplay; encrypted-media; picture-in-picture"
@@ -140,7 +142,7 @@
     const conteudoInicial = document.getElementById('conteudoInicial');
     const telaFinal = document.getElementById('telaFinal');
 
-  
+    // Botão Não foge loucamente (funciona perfeitamente no touch do tablet)
     function fugir() {
       const maxX = window.innerWidth - 150;
       const maxY = window.innerHeight - 300;
@@ -157,7 +159,7 @@
       fugir();
     });
 
-   
+    // Quando clica no Sim → some tudo e mostra a tela final
     simBtn.addEventListener('click', () => {
       conteudoInicial.style.display = 'none';
       telaFinal.style.display = 'flex';
